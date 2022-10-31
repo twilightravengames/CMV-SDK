@@ -1,7 +1,7 @@
 /*************************************************
 * Twilight Raven Games LLC
 * Contiguous Meta-Verse Project SDK
-* cmv_base.cpp
+* cmv_base.h
 * Licensing Information:
 * This software is provided without support, free at cost, developed in conjunction with
 * other developers, and Twilight Raven Games LLC does not hold itself responsible for any 
@@ -26,7 +26,6 @@
 * Originally written: 10/22/2022 11:20 EDT United Staes of America
 */
 
-
 //////////////////////////////
 //Includes
 //////////////////////////////
@@ -35,7 +34,7 @@
 
 
 //////////////////////////////
-//Class Declarations
+//Class Implemntations
 //////////////////////////////
 
 //////////////////////////////
@@ -44,13 +43,12 @@
 // 			provides ref countign through Qt 6 API of inherited objects
 //			a standard data member structure as a model for classes.
 
-class cmvBase 
+//Default constructor
+
+cmvBase::cmvBase()
 {
-public:
-	//Default constructor
-	cmvBase();
-	
-	//Default deconstructor
-	~cmvBase();
-	
-};
+}
+
+cmvBase::~cmvBase()
+{
+}
