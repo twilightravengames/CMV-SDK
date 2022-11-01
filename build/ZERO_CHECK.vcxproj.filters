@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\twili\Desktop\Twilight Raven Games Checkouts\CMV-SDK\build\CMakeFiles\93c328a9e8b78dffe29ebf83a98f233d\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{03013F74-4A0D-3620-BFB5-00EB99A7A28F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\twili\Desktop\Twilight Raven Games Checkouts\CMV-SDK\build\cmv_sdk_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\twili\Desktop\Twilight Raven Games Checkouts\CMV-SDK\src\sdksrc\cmv_base.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\twili\Desktop\Twilight Raven Games Checkouts\CMV-SDK\build\cmv_sdk_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\twili\Desktop\Twilight Raven Games Checkouts\CMV-SDK\build\cmv_sdk_autogen\mocs_compilation_MinSizeRel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\twili\Desktop\Twilight Raven Games Checkouts\CMV-SDK\build\cmv_sdk_autogen\mocs_compilation_RelWithDebInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\twili\Desktop\Twilight Raven Games Checkouts\CMV-SDK\src\sdkheader\cmv_base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\twili\Desktop\Twilight Raven Games Checkouts\CMV-SDK\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{B301369E-926F-39CC-9F81-D0482CD054CC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8935F154-7BB4-3E17-9990-B27D8361A4EE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

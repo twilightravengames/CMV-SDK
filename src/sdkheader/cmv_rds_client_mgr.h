@@ -1,0 +1,1 @@
+//manages the RDS document client side along with the session manager class
