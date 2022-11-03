@@ -43,3 +43,9 @@ Consumes libUSIF (For universal rigging support)
 Consumes MDL-SDK (For default material shaders - materidal definition language by nVidia)
 Consumes libMDLBridgeToSPIR (To convert CMV-SDK MDL materials to SPIR-V compatible shaders, for passing 
 		to Qt 3D for web browsers, GL or DirectX for OpenXR, etc.)
+
+
+CMV MODULES
+===========
+StruMML Sector Bridge - Handles the bridging between different sectors (different StruMML docs and server RDS files)
+		- managges visual and logicla problems that deal specifially with continuity
