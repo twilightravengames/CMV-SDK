@@ -13,7 +13,24 @@ RDS will take the form of JSON files that are directly related to updates to USD
 Web applications to RDS/StruMML/USD related data will be incorporatd through the provided library once linked against CMV-SDK and 
 	be part of the StruMML/RDS standard
 MDL-SDK (open-source by nVIdia) will be the default shader language for CMV-SDK
-libMDLBridgeToSPIR ( a library to bridge MDL shaders to SPIR-V compatible shaders like GLSL and HLSL, Metal, Vulkan, etc. )
+libMDLBridgeToSPIR ( a library to bridge MDL shaders to SPIR-V compatible shaders like GLSL and HLSL, Metal, Vulkan, etc. 
+
+DEFINITION
+==========
+USD scene graphs are provided via <USD SRC> tags linking to a USD File format tag within a StruMML document
+RDS modifier documents are provided as .JSON files with the master RDS session file linked using <RDS SRC> tag
+Standard Javasccript and DOM manipulation tags apply from HTML to the StruMML XML format
+The CMV SDK provides for manipulation of USD and RDS information through standard DOM like interface for Javascript purposes
+Sector boundaries (hyperlinks) are provided by <SECTOR SRC> tags leading to another StruMML document URI
+Sector dimensions are speified as part of parameters to the document definition tag <DOC DEFINTION>
+DIV tags are supported for traditional DOM manipulation mechanisms (insertion of new code/file references, etc.)
+<ADJUST> Tags with parameters can be nested wtihin <SECTOR SRC> tags to make CMV tag transitions more continuous(adjustments to avatar position on transition from one terrain to another for example, lining up terrain boundaries, etc.)
+LOD (Level of Detail) information is provided by the client for the server for the browsing application to preview linked sectors via exchange of RDS
+Avatar interaction between StruMML/RDS geometry and other avatars is provided via client and server side RDS negotiations
+StruMML provides the definition according to a USD scene graph, RDS JSON files supply supplemental information based off of modifications to local and remote USD scene graphs
+Web3 (crypto/nfts) are handled through DeFi library for CMV incorporation, data stored within USD StruMML definitions and modifications made by server and client RDS/StruMML/USD
+
+
 
 DEPENDENCIES
 ============
