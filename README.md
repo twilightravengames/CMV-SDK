@@ -17,6 +17,8 @@ libMDLBridgeToSPIR ( a library to bridge MDL shaders to SPIR-V compatible shader
 
 DEFINITION
 ==========
+StruMML serves as a sector based scenegraph in a document representation easily distributable via WWW APIs. The CMV-SDK acts as an adapter for other scenegrpah models
+	with importers for applications such as Unity, Unreal. It also provides implementations of StruMML/RDS scenegraphs and associated technology for USD, Qt3D, and more.
 USD scene graphs are provided via <USD SRC> tags linking to a USD File format tag within a StruMML document
 RDS modifier documents are provided as .JSON files with the master RDS session file linked using <RDS SRC> tag
 Standard Javasccript and DOM manipulation tags apply from HTML to the StruMML XML format
