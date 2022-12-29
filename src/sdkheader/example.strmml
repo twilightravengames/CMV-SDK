@@ -15,11 +15,9 @@
     <HEAD>
         <TITLE>Example StruMML Page</TITLE>
     </HEAD>
-    <!-- Defines the boundary sectors of the current sector and the sector prism dimension type -->
 
     <DEFINITION>
-        
-        <!-- A division for custom logic in the sector
+        <!-- A division for custom logic in the sector -->
         <LOGIC>
             <!-- Script tags can use DOM and StruMML supports DIV tags to insert client side logic using JavaScript
             <script>
@@ -40,6 +38,7 @@
         </LOGIC>
 
         <SECTOR>
+            <!-- Defines the boundary sectors of the current sector and the sector prism dimension type -->
             <BOUNDARIES bounds="hexagonal-prism" name="example-center" url="https://www.twilightravengames.com/example/center.strmml">
                 <a href="https://www.twilightravengames.com/example/topboundary.strmml" type="top">
                     <!-- A LOD source is a set of settings that determines hwo level of detail caching is handled for a StruMML file from
@@ -70,8 +69,9 @@
             </BOUNDARIES>
 
             <ENVIRONMENT>
-                <!-- ToDo: Provide environment map data, default lighting -->
-            
+                <!-- Provides environment map data, default lighting -->
+                <environment src="https://www.twilightravengames.com/example/exampleenvmap.hdri" importer="hdri"/>
+                <ambient r="255" g="125" b="0" intensity="255"/>
             </ENVIRONMENT>
 
             <BOUNDING>
@@ -224,7 +224,7 @@
                 </LIBRARY>
             </CAMERAS>
 
-            <!--ToDO: Provides for different lighting types in the scene - such as point light, spot light, etc.
+            <!--Provides for different lighting types in the scene - such as point light, spot light, etc.
             <LIGHTS>
                 <LIBRARY>
                     <ENTRY id="point-light-1">
@@ -239,6 +239,7 @@
                         <!-- a spot light is essentially geometrically a cone -->
                         <lightcolor r="125" g="125" b="125"/>
                         <intensity value="75%"/>
+                        <diameter value="10.0f"/>
                         <boxtransform src="https://www.twilightravengames.com/example/center/spot-light-1.tfm"/> 
                     </ENTRY>
 
@@ -271,7 +272,7 @@
                 </LIBRARY>
             </LIGHTS>
 
-            <!-- ToDo: Provides for unrigged geometry such as props, primitives, terrain, etc. -->
+            <!-- Provides for unrigged geometry such as props, primitives, terrain, etc. -->
             <UNRIGGED>
                 <!-- Engine Meta Source Tag - Defines additional information about the behavior of NPC Engine -->
                 <engine src="https://www.twilightravengames.com/example/npcdef.ngn"/>
@@ -286,7 +287,29 @@
                             <uv src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
                             <material src="https://www.twilightravengames.com/example/avatar1/materials/" importer="fbx2012-ascii"/>
-                            <boxtransform src="https://www.twilightravengames.com/example/center/house-geom.tfm"/
+                            <boxtransform src="https://www.twilightravengames.com/example/center/house-geom.tfm"/>
+                    </ENTRY>
+                     <ENTRY id="apple-1">
+                        <!-- Geometry Source Tag (Note the import parameter that specifies the type of importer for the geometry) -->
+                            <geom src="https://www.twilightravengames.com/example/apple-1.fbx" importer="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/apple-1.fbx" importer="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/apple-1.fbx" importer="fbx2012-ascii"/>
+                            <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                            <material src="https://www.twilightravengames.com/example/apple-1/materials/" importer="fbx2012-ascii"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/apple-1.tfm"/>
+                            <!-- provides physics information for the apple including weight, density, behavior, etc -->
+                            <physics src="https://www.twilightravengames.com/example/avatar1/apple.usif"/>
+                            <!-- explicitly tells the implementation to parent the apple to the table in the scene graph -->
+                            <parent tgt="table-1"/>
+                    </ENTRY>
+                    <ENTRY id="table-1">
+                        <!-- Geometry Source Tag (Note the import parameter that specifies the type of importer for the geometry) -->
+                            <geom src="https://www.twilightravengames.com/example/table-1.fbx" importer="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/table-1.fbx" importer="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/table-1.fbx" importer="fbx2012-ascii"/>
+                            <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                            <material src="https://www.twilightravengames.com/example/table-1/materials/" importer="fbx2012-ascii"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/table-1.tfm"/>
                     </ENTRY>
                     <ENTRY id="terrain">
                             <geom src="https://www.twilightravengames.com/example/terrain.fbx" importer="fbx2012-ascii"/>
@@ -294,7 +317,7 @@
                             <uv src="https://www.twilightravengames.com/example/terrain.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
                             <material src="https://www.twilightravengames.com/example/terrain/materials/" importer="fbx2012-ascii"/>
-                            <boxtransform src="https://www.twilightravengames.com/example/center/terrain.tfm"/
+                            <boxtransform src="https://www.twilightravengames.com/example/center/terrain.tfm"/>
                     </ENTRY>
                     <ENTRY id="mirror-portal">
                             <geom src="https://www.twilightravengames.com/example/mirror-portal.obj" importer="obj-ascii"/>
@@ -322,17 +345,48 @@
                                 <lod src="https://www.google.com/index/levelofdetail.xml" type="settings"/>
                             </a>
                     </ENTRY>
+
+                    <ENTRY id="stump">
+                            <geom src="https://www.twilightravengames.com/example/stump.obj" importer="obj-ascii"/>
+                            <!-- Generate normals using internal engine -->
+                            <engine src="https://www.twilightravengames.com/example/normalgenerator.ngn"/>
+                            <!-- Use a procedural texture engine -->
+                            <engine src="https://www.twilightravengames.com/example/proceduraltexture.ngn"/>
+                            <material src="https://www.twilightravengames.com/example/stump.proc"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/stump.tfm"/>
+                    </ENTRY>
                 </LIBRARY>
             </UNRIGGED>
 
-            <!-- Provides for particles according to a particle system engine to exist for things like volumetrics, water, clouds, and other applications -->
+            <!-- Provides for Particles according to a Particle System Engine to exist for things like volumetrics, water, clouds, and other applications -->
             <PARTICLE SYSTEM>
                 <!-- Particle System engine Meta Source Tag - Defines additional information about the behavior of the Particle Engine -->
                 <engine src="https://www.twilightravengames.com/example/particles.ngn"/>
                 <!-- Using extension fmt for now, unknown what particle system formats or importers will be supported yet -->
                 <particle src="https://www.twilightravengames.com/example/particles.fmt" importer="unknown" -->
-                <boxtransform src="https://www.twilightravengames.com/example/center/sentient-emission-light-1.tfm"/
+                <boxtransform src="https://www.twilightravengames.com/example/center/sentient-emission-light-1.tfm"/>
             </PARTICLE SYSTEM>
+
+            <!-- Provides for VDB volumetric/voxel databse engine incorporation -->
+            <VDB SYSTEM>
+                <engine src="https://www.twilightravengames.com/example/vdb.ngn"/>
+                <vdb src="https://www.twilightravengames.com/example/animatedfire.vdb"/>
+                <boxtransform src="https://www.twilightravengames.com/example/center/animatedfire.tfm"/>
+            </VDB SYSTEM>
+
+            <!-- Provides for Fractal engine incorporation -->
+            <FRACTAL SYSTEM>
+                <engine src="https://www.twilightravengames.com/example/fractal.ngn"/>
+                <fractal src="https://www.twilightravengames.com/example/worldtree.fractal"/>
+                <boxtransform src="https://www.twilightravengames.com/example/center/worldtree.tfm"/>
+            </FRACTAL SYSTEM>
+
+            <!-- Provides for a Terrain Generation Engine incorporation -->
+            <TERRAIN GENERATOR>
+                <engine src="https://www.twilightravengames.com/example/terrain.ngn"/>
+                <terrain src="https://www.twilightravengames.com/example/hills.terrain"/>
+                <boxtransform src="https://www.twilightravengames.com/example/center/hills.tfm"/>
+            </TERRAIN GENERATOR>
 
             <!-- Provides an interface for custom tags provided by the creator -->
             <CUSTOM TAGS>
@@ -345,18 +399,21 @@
     <!-- ToDo: The id-guid table. A mapping of all ids in the StruMML document to a GUID. GUIDs are salted and encrypted and passed through RDS to keep 
          uniqueness -->
     <GUIDS>
-        <guidmap id="" guid="" />
+        <guidmap id="avatar1" guid="79ED8A25-E92C-491F-9E4F-A0698087DF72" />
+        <guidmap id="avatar2" guid="2E67A707-FCFD-4ECB-8839-D1631A8BB295" />
+        <guidmap id="avatar3" guid="63163430-8155-4BF3-B023-B5AAA84A7915" />
+        <!-- and so on for all ids... -->
     </GUIDS>
 
-    <!-- ToDo: Maps RDS client side modifiable resources to RDS documents to be passed between client and server. Defines RDS document URLs. -->
-    <!-- ToDo: Establishes a master RDS document for the session of this particular StruMML page with a URL -->
-    <!-- ToDo: RDS documents act as StruMML definition modifiers, changing the base document in a stack like fashion -->
+    <!-- Maps RDS client side modifiable resources to RDS documents to be passed between client and server. Defines RDS document URLs. -->
+    <!-- Establishes a master RDS document for the session of this particular StruMML page with a URL -->
+    <!-- RDS documents act as StruMML definition modifiers, changing the base document in a stack like fashion -->
     <RDS LOCATOR>
         <rdsmaster href="https://www.twilightravengames.com/example/center.rds/>
-        <rds id="" href=""/>
-        <rds id="" href=""/>
-        <rds id="" href=""/>
-        <rds id="" href=""/>
+        <rds id="avatar1" href="https://www.twilightravengames.com/example/center/avatar1.rds"/>
+        <rds id="avatar2" href="https://www.twilightravengames.com/example/center/avatar2.rds"/>
+        <rds id="avatar3" href="https://www.twilightravengames.com/example/center/avatar3.rds"/>
+        <!-- and so on for all ids... -->
         <!-- There is a mechanism to add DIVs to the StruMML document as in standard HTML, so that they can be modified client-side by JavaScript -->
         <DIV id="example"/>
     </RDS LOCATOR>
