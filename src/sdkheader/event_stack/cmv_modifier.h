@@ -1,0 +1,1 @@
+//a base class for modifiers such as subdivision, smoothing, etc. to inherit from

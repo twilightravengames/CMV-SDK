@@ -1,0 +1,197 @@
+<!-- Note that anchor tags are kept lowercase and structural tags are kept uppercase by convention not by standard -->
+<STRUMML>
+    <FILEINFO>
+        <version="1.0.0.0"/>
+        <!-- all id paramters are unique within a StruMML document -->
+        <id="my_first_strumml_example"/>
+        <label="My First StruMML Example"/>
+        <author="Ted Gress"/>
+        <email="tgress@Qtwilightravengames.com"/>
+        <revision="1.0.0.0"/>
+        <modified="2022-12-29T12:56:00GMT"
+        <website="https://www.twilightravengames.com/">
+    <HEAD>
+        <TITLE>Example StruMML Page</TITLE>
+    </HEAD>
+    <!-- Defines the boundary sectors of the current sector and the sector prism dimension type -->
+
+    <DEFINITION>
+        
+        <!-- A division for custom logic in the sector
+        <LOGIC>
+            <!-- Script tags can use DOM and StruMML supports DIV tags to insert client side logic using JavaScript
+            <script>
+            </script>
+        </LOGIC>
+
+        <SECTOR>
+            <BOUNDARIES bounds="hexagonal-prism" name="example-center" url="https://www.twilightravengames.com/example/center.strmml">
+                <a href="https://www.twilightravengames.com/example/topboundary.strmml" type="top"/>
+                <a href="https://www.twilightravengames.com/example/bottomboundary.strmml" type="bottom"/>
+                <a href="https://www.twilightravengames.com/example/frontboundary.strmml" type="front"/>
+                <a href="https://www.twilightravengames.com/example/backboundary.strmml" type="back"/>
+                <a href="https://www.twilightravengames.com/example/frontleft.strmml" type="front-left"/>
+                <a href="https://www.twilightravengames.com/example/frontright.strmml" type="front-right"/>
+                <a href="https://www.twilightravengames.com/example/backleft.strmml" type="back-left"/>
+                <a href="https://www.twilightravengames.com/example/backright.strmml" type="back-right"/>
+            </BOUNDARIES>
+
+            <ENVIRONMENT>
+                <!-- ToDo: Provide environment map data, default lighting -->
+            
+            </ENVIRONMENT>
+
+            <BOUNDING>
+                <!-- ToDo: Provide scale, bounding box information, etc. -->
+                <!-- ToDo: PRovide ToDo: Define the root world space scale, axes, center point, and orientation --> 
+            </BOUNDING>
+
+            <!-- The other options for this tag are: "optional" and "not-required"/>
+            <AVATAR selection="required"/>
+                <!-- Engine Meta Source Tag - Defines additioanl information about the behavior of the Avatar Engine -->
+                <engine src="https://www.twilightravengames.com/example/avatardef.src"/>
+                
+                <!-- Defines the different avatars that can be provided for use in the sector -->
+                <!-- If an avatar selection is not required, the user's current avatar is kept in session -->
+                <!-- ToDo: Other important information to provide is animation data, rigging data, physics data (including collision), skeleton information,
+                    modifiers, and camera information -->
+                <!-- ToDo: Define the transformation from model to world space scale, axes, center point, and orientation -->
+                <LIBRARY>
+                    <ENTRY id="avatar1">
+                        <!-- Geometry Source Tag (Note the import parameter that specifies the type of importer for the geometry) -->
+                            <geom src="https://www.twilightravengames.com/example/avatar1.fbx" import="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/avatar1.fbx" import="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/avatar1.fbx" import="fbx2012-ascii"/>
+                            <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                            <-- This metadata defines the play control for the avatar in the sector -->
+                            <player src="https://www.twilightravengames.com/example/avatar1/playercontrol.src"/>
+                    </ENTRY>
+                    <ENTRY id="avatar2">
+                            <geom src="https://www.twilightravengames.com/example/avatar2.fbx" import="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/avatar2.fbx" import="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/avatar2.fbx" import="fbx2012-ascii"/>
+                            <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                            <material src="https://www.twilightravengames.com/example/avatar2/materials/" importer="fbx2012-ascii"/>
+                            <player src="https://www.twilightravengames.com/example/avatar1/playercontrol.src"/>
+                    </ENTRY>
+                    <ENTRY id="avatar3">
+                            <geom src="https://www.twilightravengames.com/example/avatar3.obj" import="obj-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/avatar2.obj" import="obj=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/avatar2.obj" import="obj-ascii"/>
+                            <!--This tag points to the obj because in the case of obj the materials must be embedded" -->
+                            <material src="https://www.twilightravengames.com/example/avatar2.obj" importer="obj"/>
+                            <player src="https://www.twilightravengames.com/example/avatar1/playercontrol.src"/>
+                    </ENTRY>
+                </LIBRARY>
+            </AVATAR>
+
+            <NPC>
+                <!-- Engine Meta Source Tag - Defines additional information about the behavior of NPC Engine -->
+                <engine src="https://www.twilightravengames.com/example/npcdef.src"/>
+                
+                <!-- Defines the different npcs in the sector by default -->
+                <LIBRARY>
+                    <ENTRY id="slime">
+                        <!-- Geometry Source Tag (Note the import parameter that specifies the type of importer for the geometry) -->
+                            <geom src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012-ascii"/>
+                            <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                            <material src="https://www.twilightravengames.com/example/slime/materials/" importer="fbx2012-ascii"/>
+                            <!-- This defines the AI behavior for the NPC -->
+                            <behavior src="https://www.twilightravengames.com/example/slime/slime_ai.src"/>
+                    </ENTRY>
+                    <ENTRY id="sci-fi-soldier">
+                            <geom src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" import="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" import="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" import="fbx2012-ascii"/>
+                            <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                            <material src="https://www.twilightravengames.com/example/sci-fi-soldier/materials/" importer="fbx2012-ascii"/>
+                            <behavior src="https://www.twilightravengames.com/example/slime/sci-fi-soldier_ai.src"/>
+                    </ENTRY>
+                    <ENTRY id="archer1">
+                            <geom src="https://www.twilightravengames.com/example/archer.obj" import="obj-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/archer.obj" import="obj=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/archer.obj" import="obj-ascii"/>
+                            <!--This tag points to the obj because in the case of obj the materials must be embedded" -->
+                            <material src="https://www.twilightravengames.com/example/archer.obj" importer="obj"/>
+                            <behavior src="https://www.twilightravengames.com/example/slime/archer_ai.src"/>
+                    </ENTRY>
+                </LIBRARY>
+            </NPC>
+
+            <!-- Provides camera position, orientation, focal point, field of view, ... -->
+            <CAMERA>
+
+            </CAMERA>
+
+            <!--ToDO: Provides for different lighting types in the scene - such as point light, spot light, etc.
+            <LIGHT>
+
+            </LIGHT>
+
+            <!-- ToDo: Provides for unrigged geometry such as props, primitives, terrain, etc. -->
+            <UNRIGGED>
+                <!-- Engine Meta Source Tag - Defines additional information about the behavior of NPC Engine -->
+                <engine src="https://www.twilightravengames.com/example/npcdef.src"/>
+                
+                <!-- Defines the different npcs in the sector by default -->
+                <LIBRARY>
+                    <ENTRY id="house-geom">
+                        <!-- Geometry Source Tag (Note the import parameter that specifies the type of importer for the geometry) -->
+                            <geom src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012-ascii"/>
+                            <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                            <material src="https://www.twilightravengames.com/example/avatar1/materials/" importer="fbx2012-ascii"/>
+                    </ENTRY>
+                    <ENTRY id="terrain">
+                            <geom src="https://www.twilightravengames.com/example/.fbx" import="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/avatar2.fbx" import="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/avatar2.fbx" import="fbx2012-ascii"/>
+                            <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                            <material src="https://www.twilightravengames.com/example/avatar2/materials/" importer="fbx2012-ascii"/>
+                    </ENTRY>
+                    <ENTRY id="mirror-portal">
+                            <geom src="https://www.twilightravengames.com/example/avatar3.obj" import="obj-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/avatar2.obj" import="obj=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/avatar2.obj" import="obj-ascii"/>
+                            <!--This tag points to the obj because in the case of obj the materials must be embedded" -->
+                            <material src="https://www.twilightravengames.com/example/avatar2/avatar2.obj" importer="obj"/>
+                    </ENTRY>
+                </LIBRARY>
+            </UNRIGGED>
+
+            <!-- ToDo: Provides for particles according to a particle system engine to exist for things like volumetricsd, water, clouds, and other applications -->
+            <PARTICLE SYSTEM>
+
+            </PARTICLE SYSTEM>
+
+            <!-- ToDo: Provides an interface for custom tags provided by the creator -->
+            <CUSTOM TAGS>
+
+            </CUSTOM TAGS>
+        </SECTOR>
+    
+    </DEFINTIION>
+
+    <!-- ToDo: The id-guid table. A mapping of all ids in the StruMML document to a GUID. GUIDs are salted and encrypted and passed through RDS to keep 
+         uniqueness -->
+    <GUIDS>
+        <guidmap id="" guid="" />
+    </GUIDS>
+
+    <!-- ToDo: Maps RDS client side modifiable resources to RDS documents to be passed between client and server. Defines RDS document URLs. -->
+    <!-- ToDo: Establishes a master RDS document for the session of this particular StruMML page with a URL -->
+    <!-- ToDo: RDS documents act as StruMML definition modifiers, changing the base document in a stack like fashion -->
+    <RDS LOCATOR>
+        <rdsmaster href="https://www.twilightravengames.com/example/center.rds/>
+        <rds id="" href=""/>
+        <rds id="" href=""/>
+        <rds id="" href=""/>
+        <rds id="" href=""/>
+    </RDS LOCATOR>
+    
+</STRUMML>
+    
+

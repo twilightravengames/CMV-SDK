@@ -1,0 +1,1 @@
+//a class to manage modfiiers that inherit from cmv_modifier
