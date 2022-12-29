@@ -2,6 +2,14 @@
 An open source software developer kit with the necessary libraries and API to implement, post to, and request from, a Contiguous Meta-Verse remote service
 
 
+PROPOSAL CHANGES 12/29/2022
+===============
+Scene graph support will be provided internally by APIs such as USD, Qt3D< etc. based upon implementation of CMV-SDK
+CMV-SDK will provide a DOM based API for scenegraph information in the form of StruMML and RDS documents.
+UI components will be implemented by engines implementing CMV-SDK
+Consdering UI "triggers" to be allowed to be embedded into StruMML/RDS documents
+
+
 PROPOSAL CHANGES 11/2/2022
 ================
 Primary scene graph support will be provided by USD

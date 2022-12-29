@@ -1,3 +1,5 @@
+
+<!DOCTYPE strumml>
 <!-- Note that anchor tags are kept lowercase and structural tags are kept uppercase by convention not by standard -->
 <STRUMML>
     <FILEINFO>
@@ -21,19 +23,50 @@
         <LOGIC>
             <!-- Script tags can use DOM and StruMML supports DIV tags to insert client side logic using JavaScript
             <script>
+                <!-- These are traditional javascript like actions that can be used for UI purposes for example and embedded within
+                     the markup. The example below just provides an alert on document load on the client-side. -->
+                alert("This alert box was called with the onload event");
             </script>
+            <script>
+                <!-- Another classic javascript/DOM script interaction below modifies a StruMML definition to include a new RDS link -->
+                document.getElementById("example").innerHTML = '<rds id="" href=""/>';
+            </script>
+            <script type="text/javascript" src="https://www.twilightravengames.com/example/example_script.js"/>
+            <!-- A trigger is a type of action that causes a script to be pushed to the event stack. These scripts are executed on the
+                 event stack. The script on the event stack can modify the RDS document based on things like collisions or movement. The local
+                 implementation based browser reads these scripts on the event stack and interprets them, modifying the local session and 
+                 then pushing the newly updated cached RDS document to the host server. -->
+            <trigger type="text/javascript" src="https://www.twilightravengames.com/example/press_main_button.js"/>
         </LOGIC>
 
         <SECTOR>
             <BOUNDARIES bounds="hexagonal-prism" name="example-center" url="https://www.twilightravengames.com/example/center.strmml">
-                <a href="https://www.twilightravengames.com/example/topboundary.strmml" type="top"/>
-                <a href="https://www.twilightravengames.com/example/bottomboundary.strmml" type="bottom"/>
-                <a href="https://www.twilightravengames.com/example/frontboundary.strmml" type="front"/>
-                <a href="https://www.twilightravengames.com/example/backboundary.strmml" type="back"/>
-                <a href="https://www.twilightravengames.com/example/frontleft.strmml" type="front-left"/>
-                <a href="https://www.twilightravengames.com/example/frontright.strmml" type="front-right"/>
-                <a href="https://www.twilightravengames.com/example/backleft.strmml" type="back-left"/>
-                <a href="https://www.twilightravengames.com/example/backright.strmml" type="back-right"/>
+                <a href="https://www.twilightravengames.com/example/topboundary.strmml" type="top">
+                    <!-- A LOD source is a set of settings that determines hwo level of detail caching is handled for a StruMML file from
+                         an external sector -->
+                    <lod src="https://www.twilightravengames.com/example/levelofdetail.xml" type="settings"/>
+                </a>
+                <a href="https://www.twilightravengames.com/example/bottomboundary.strmml" type="bottom">
+                    <lod src="https://www.twilightravengames.com/example/levelofdetail.xml" type="settings"/>
+                </a>
+                <a href="https://www.twilightravengames.com/example/frontboundary.strmml" type="front">
+                    <lod src="https://www.twilightravengames.com/example/levelofdetail.xml" type="settings"/>
+                </a>
+                <a href="https://www.twilightravengames.com/example/backboundary.strmml" type="back">
+                    <lod src="https://www.twilightravengames.com/example/levelofdetail.xml" type="settings"/>
+                </a>
+                <a href="https://www.twilightravengames.com/example/frontleft.strmml" type="front-left">
+                    <lod src="https://www.twilightravengames.com/example/levelofdetail.xml" type="settings"/>
+                </a>
+                <a href="https://www.twilightravengames.com/example/frontright.strmml" type="front-right">
+                    <lod src="https://www.twilightravengames.com/example/levelofdetail.xml" type="settings"/>
+                </a>
+                <a href="https://www.twilightravengames.com/example/backleft.strmml" type="back-left">
+                    <lod src="https://www.twilightravengames.com/example/levelofdetail.xml" type="settings"/>
+                </a>
+                <a href="https://www.twilightravengames.com/example/backright.strmml" type="back-right">
+                    <lod src="https://www.twilightravengames.com/example/levelofdetail.xml" type="settings"/>
+                </a>
             </BOUNDARIES>
 
             <ENVIRONMENT>
@@ -42,29 +75,37 @@
             </ENVIRONMENT>
 
             <BOUNDING>
-                <!-- ToDo: Provide scale, bounding box information, etc. -->
-                <!-- ToDo: PRovide ToDo: Define the root world space scale, axes, center point, and orientation --> 
+                <!-- Provides scale, a bounding box, axes alignment, center point, and orientation using a bounding box data item in xml -->
+                <world>
+                    <boxtransform src="https://www.twilightravengames.com/example/center/worldbox.tfm"/>
+                </world>
             </BOUNDING>
 
             <!-- The other options for this tag are: "optional" and "not-required"/>
             <AVATAR selection="required"/>
                 <!-- Engine Meta Source Tag - Defines additioanl information about the behavior of the Avatar Engine -->
-                <engine src="https://www.twilightravengames.com/example/avatardef.src"/>
+                <engine src="https://www.twilightravengames.com/example/avatardef.ngn"/>
+                <!-- Modifier Engine Meta Source Tag - Defines algorithm specific information about the behavior of the modifier stack -->
+                <modengine src="https://www.twilightravengames.com/example/modifierengine.ngn"/>
                 
                 <!-- Defines the different avatars that can be provided for use in the sector -->
                 <!-- If an avatar selection is not required, the user's current avatar is kept in session -->
-                <!-- ToDo: Other important information to provide is animation data, rigging data, physics data (including collision), skeleton information,
-                    modifiers, and camera information -->
-                <!-- ToDo: Define the transformation from model to world space scale, axes, center point, and orientation -->
                 <LIBRARY>
                     <ENTRY id="avatar1">
-                        <!-- Geometry Source Tag (Note the import parameter that specifies the type of importer for the geometry) -->
+                            <!-- Geometry Source Tag (Note the import parameter that specifies the type of importer for the geometry) -->
                             <geom src="https://www.twilightravengames.com/example/avatar1.fbx" import="fbx2012-ascii"/>
                             <normal src="https://www.twilightravengames.com/example/avatar1.fbx" import="fbx2012=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/avatar1.fbx" import="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
                             <-- This metadata defines the play control for the avatar in the sector -->
                             <player src="https://www.twilightravengames.com/example/avatar1/playercontrol.src"/>
+                            <animation id="running" src="https://www.twilightravengames.com/example/avatar1/running.mdd"/>
+                            <-- Universal skin-binding and skeletal information exchange file library - to be developed -->
+                            <skeleton src="https://www.twilightravengames.com/example/avatar1/avatar1.usif"/>
+                            <physics src="https://www.twilightravengames.com/example/avatar1/avatar1.usif"/>
+                            <modifiers src="https://www.twilightravengames.com/example/avatar1/avatar1.mdfrs"/>
+                            <!-- The default transform box that converts from model to world space coordinates for the avatar -->
+                            <boxtransform src="https://www.twilightravengames.com/example/center/avatar1.tfm"/>
                     </ENTRY>
                     <ENTRY id="avatar2">
                             <geom src="https://www.twilightravengames.com/example/avatar2.fbx" import="fbx2012-ascii"/>
@@ -73,6 +114,7 @@
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
                             <material src="https://www.twilightravengames.com/example/avatar2/materials/" importer="fbx2012-ascii"/>
                             <player src="https://www.twilightravengames.com/example/avatar1/playercontrol.src"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/avatar2.tfm"/>
                     </ENTRY>
                     <ENTRY id="avatar3">
                             <geom src="https://www.twilightravengames.com/example/avatar3.obj" import="obj-ascii"/>
@@ -81,95 +123,220 @@
                             <!--This tag points to the obj because in the case of obj the materials must be embedded" -->
                             <material src="https://www.twilightravengames.com/example/avatar2.obj" importer="obj"/>
                             <player src="https://www.twilightravengames.com/example/avatar1/playercontrol.src"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/avatar3.tfm"/>
                     </ENTRY>
                 </LIBRARY>
             </AVATAR>
 
             <NPC>
                 <!-- Engine Meta Source Tag - Defines additional information about the behavior of NPC Engine -->
-                <engine src="https://www.twilightravengames.com/example/npcdef.src"/>
+                <engine src="https://www.twilightravengames.com/example/npcdef.ngn"/>
+                <modengine src="https://www.twilightravengames.com/example/modifierengine.ngn"/>
                 
                 <!-- Defines the different npcs in the sector by default -->
                 <LIBRARY>
                     <ENTRY id="slime">
                         <!-- Geometry Source Tag (Note the import parameter that specifies the type of importer for the geometry) -->
-                            <geom src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012-ascii"/>
-                            <normal src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012=ascii"/>
-                            <uv src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012-ascii"/>
+                            <geom src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
                             <material src="https://www.twilightravengames.com/example/slime/materials/" importer="fbx2012-ascii"/>
                             <!-- This defines the AI behavior for the NPC -->
-                            <behavior src="https://www.twilightravengames.com/example/slime/slime_ai.src"/>
+                            <behavior src="https://www.twilightravengames.com/example/slime/slime_ai.ngn"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/slime_ai.tfm"/>
                     </ENTRY>
                     <ENTRY id="sci-fi-soldier">
-                            <geom src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" import="fbx2012-ascii"/>
-                            <normal src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" import="fbx2012=ascii"/>
-                            <uv src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" import="fbx2012-ascii"/>
+                            <geom src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" importer="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" importer="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
                             <material src="https://www.twilightravengames.com/example/sci-fi-soldier/materials/" importer="fbx2012-ascii"/>
-                            <behavior src="https://www.twilightravengames.com/example/slime/sci-fi-soldier_ai.src"/>
+                            <behavior src="https://www.twilightravengames.com/example/slime/sci-fi-soldier_ai.ngn"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/sci-fi-soldier.tfm"/>
                     </ENTRY>
                     <ENTRY id="archer1">
-                            <geom src="https://www.twilightravengames.com/example/archer.obj" import="obj-ascii"/>
-                            <normal src="https://www.twilightravengames.com/example/archer.obj" import="obj=ascii"/>
-                            <uv src="https://www.twilightravengames.com/example/archer.obj" import="obj-ascii"/>
+                            <geom src="https://www.twilightravengames.com/example/archer.obj" importer="obj-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/archer.obj" importer="obj=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/archer.obj" importer="obj-ascii"/>
                             <!--This tag points to the obj because in the case of obj the materials must be embedded" -->
                             <material src="https://www.twilightravengames.com/example/archer.obj" importer="obj"/>
-                            <behavior src="https://www.twilightravengames.com/example/slime/archer_ai.src"/>
+                            <behavior src="https://www.twilightravengames.com/example/slime/archer_ai.ngn"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/archer1.tfm"/>
                     </ENTRY>
                 </LIBRARY>
             </NPC>
 
             <!-- Provides camera position, orientation, focal point, field of view, ... -->
-            <CAMERA>
-
-            </CAMERA>
+            <!-- These cameras are accessible in the scene graph and can be used by the SDK implementation -->
+            <!-- to provide options to select differnt views -->
+            <CAMERAS>
+                <LIBRARY>
+                    <ENTRY id="player-pov">
+                        <!-- bond parameters record how a camera is "bonded" to an avatar -->
+                        <!-- position parameters are determined by the type of bond -->
+                        <!-- orientation parameters are detrmined by the playercontrol src information -->
+                        <camera id="avatar-pov">
+                            <!-- bond type indicates who the the camera 'prefers' to be attached to, in this case, the camera is attached to the primary avatar
+                            <bond type="browser-avatar"/> 
+                            <!-- focal point indicates how the position of the camera is placed, "eyesight-avatar" means throguh the avatars eye (1st person) -->
+                            <focal point="eyesight-avatar"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/player-pov.tfm"/>
+                        </camera>
+                    </ENTRY>
+                    
+                    <ENTRY id="over-shoulder-player-pov">
+                        <camera id="avatar-pov">
+                            <!-- bond type indicates who the the camera 'prefers' to be attached to
+                            <bond type="browser-avatar"/> 
+                            <!-- focal point indicates how the position of the camera is placed, "third-over-shoulder-avatar" means 
+                                 behind and over the shoulder of the avatar -->
+                            <focal point="third-over-shoulder-avatar"/> 
+                            <!-- This tag tells the implementing engine that the preferred camera distance should float about 5 meters from the avatar -->
+                            <camdistance preferred="5.0" type="float" unit="meters"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/over-shoulder-player-pov.tfm"/>
+                        </camera>
+                    </ENTRY>
+                    <ENTRY id="overhead-view">
+                        <camera id="overhead-pov">
+                            <bond type="browser-avatar"/>
+                            <!-- This tag parameter, "overview", allows for a floating camera associated with the avatar that has a direction
+                            <focal point="overview"/>   
+                            <direction i="0.0f" j="0.0f" k="1.0f"/>
+                            <fov radians="PI/2"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/overhead-view.tfm"/>
+                        <camera/>
+                    </ENTRY>
+                    
+                    <ENTRY id="perspective-viewport">
+                        <camera id="perspective-z-parallel">
+                            <!-- a bond type of sector means the camera is not bound to any particular character, useful for modeling/world creation apps -->
+                            <bond type="sector"/>
+                            <!-- far plane center causes the implementation to position the camera at the center of top far plane of the sector
+                            <focal point="top-plane-center"/> 
+                            <!-- direction is a vec3 quantity that provides a direcction vector for where the camera is pointing in unit vectors
+                            <direction i="0.0f" j="0.0f" k="1.0f"/>
+                            <!-- fov is the degrees of the field of view, specified in radians= or degrees=-->
+                            <fov degrees="70"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/perspective-viewport.tfm"/>
+                        </camera>
+                    </ENTRY>
+                </LIBRARY>
+            </CAMERAS>
 
             <!--ToDO: Provides for different lighting types in the scene - such as point light, spot light, etc.
-            <LIGHT>
+            <LIGHTS>
+                <LIBRARY>
+                    <ENTRY id="point-light-1">
+                        <!-- box transform provides a position for the point light, only other things we need to know are color, strength, etc. -->
+                        <!-- simple rgb model for now -->
+                        <lightcolor r="125" g="125" b="125"/>
+                        <intensity value="50%"/>
+                        <boxtransform src="https://www.twilightravengames.com/example/center/point-light-1.tfm"/> 
+                    </ENTRY>
 
-            </LIGHT>
+                    <ENTRY id="spot-light-1">
+                        <!-- a spot light is essentially geometrically a cone -->
+                        <lightcolor r="125" g="125" b="125"/>
+                        <intensity value="75%"/>
+                        <boxtransform src="https://www.twilightravengames.com/example/center/spot-light-1.tfm"/> 
+                    </ENTRY>
+
+                    <ENTRY id="distant-light-1">
+                        <lightcolor r="125" g="125" b="125"/>
+                        <intensity value="100%"/>
+                        <boxtransform src="https://www.twilightravengames.com/example/center/distant-light-1.tfm"/> 
+                    </ENTRY>
+
+                    <ENTRY id="geometric-emission-light-1">
+                        <!-- a light with arbitrary geometry that has emission -->
+                        <geom src="https://www.twilightravengames.com/example/geometric-emission-light-1.fbx" importer="fbx2012-ascii"/>
+                        <normal src="https://www.twilightravengames.com/example/geometric-emission-light-1.fbx" importer="fbx2012=ascii"/>
+                        <uv src="https://www.twilightravengames.com/example/geometric-emission-light-1.fbx" importer="fbx2012-ascii"/>
+                        <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                        <material src="https://www.twilightravengames.com/example/geometric-emission-light-1/materials/" importer="fbx2012-ascii"/>
+                        <boxtransform src="https://www.twilightravengames.com/example/center/geometric-emission-light-1.tfm"/> 
+                    </ENTRY>
+
+                    <ENTRY id="sentient-emission-light-1">
+                        <!-- a light with arbitrary geometry that has emission and it's own AI -->
+                        <geom src="https://www.twilightravengames.com/example/sentient-emission-light-1.fbx" importer="fbx2012-ascii"/>
+                        <normal src="https://www.twilightravengames.com/example/sentient-emission-light-1.fbx" importer="fbx2012=ascii"/>
+                        <uv src="https://www.twilightravengames.com/example/sentient-emission-light-1.fbx" importer="fbx2012-ascii"/>
+                        <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
+                        <material src="https://www.twilightravengames.com/example/sentient-emission-light-1/materials/" importer="fbx2012-ascii"/>
+                        <behavior src="https://www.twilightravengames.com/example/sentient-emission-light-1/sentient-emission-light-1_ai.ngn"/>
+                        <boxtransform src="https://www.twilightravengames.com/example/center/sentient-emission-light-1.tfm"/> 
+                    </ENTRY>
+                </LIBRARY>
+            </LIGHTS>
 
             <!-- ToDo: Provides for unrigged geometry such as props, primitives, terrain, etc. -->
             <UNRIGGED>
                 <!-- Engine Meta Source Tag - Defines additional information about the behavior of NPC Engine -->
-                <engine src="https://www.twilightravengames.com/example/npcdef.src"/>
-                
+                <engine src="https://www.twilightravengames.com/example/npcdef.ngn"/>
+                <modengine src="https://www.twilightravengames.com/example/modifierengine.ngn"/>
+
                 <!-- Defines the different npcs in the sector by default -->
                 <LIBRARY>
                     <ENTRY id="house-geom">
                         <!-- Geometry Source Tag (Note the import parameter that specifies the type of importer for the geometry) -->
-                            <geom src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012-ascii"/>
-                            <normal src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012=ascii"/>
-                            <uv src="https://www.twilightravengames.com/example/slime.fbx" import="fbx2012-ascii"/>
+                            <geom src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
                             <material src="https://www.twilightravengames.com/example/avatar1/materials/" importer="fbx2012-ascii"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/house-geom.tfm"/
                     </ENTRY>
                     <ENTRY id="terrain">
-                            <geom src="https://www.twilightravengames.com/example/.fbx" import="fbx2012-ascii"/>
-                            <normal src="https://www.twilightravengames.com/example/avatar2.fbx" import="fbx2012=ascii"/>
-                            <uv src="https://www.twilightravengames.com/example/avatar2.fbx" import="fbx2012-ascii"/>
+                            <geom src="https://www.twilightravengames.com/example/terrain.fbx" importer="fbx2012-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/terrain.fbx" importer="fbx2012=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/terrain.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
-                            <material src="https://www.twilightravengames.com/example/avatar2/materials/" importer="fbx2012-ascii"/>
+                            <material src="https://www.twilightravengames.com/example/terrain/materials/" importer="fbx2012-ascii"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/terrain.tfm"/
                     </ENTRY>
                     <ENTRY id="mirror-portal">
-                            <geom src="https://www.twilightravengames.com/example/avatar3.obj" import="obj-ascii"/>
-                            <normal src="https://www.twilightravengames.com/example/avatar2.obj" import="obj=ascii"/>
-                            <uv src="https://www.twilightravengames.com/example/avatar2.obj" import="obj-ascii"/>
-                            <!--This tag points to the obj because in the case of obj the materials must be embedded" -->
+                            <geom src="https://www.twilightravengames.com/example/mirror-portal.obj" importer="obj-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/mirror-portal.obj" importer="obj=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/mirror-portal.obj" importer="obj-ascii"/>
+                            <material src="https://www.twilightravengames.com/example/avatar2/mirror-portal.obj" importer="obj"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/mirror-portal.tfm"/>
+                            <!-- this href to a strumml document here makes it so this object is a portal that jumps to another 
+                                 StruMML sector upon collision. The LOD parameters, geometry, and materials determine how that sector
+                                 is displayedd through the magical "Mirror" portal -->
+                            <a href="https://www.google.com/index.strmml" type="portal">
+                                <lod src="https://www.google.com/index/indexlod.xml" type="settings"/>
+                            </a>
+                    </ENTRY>
+                    <ENTRY id="window-portal">
+                            <geom src="https://www.twilightravengames.com/example/avatar3.obj" importer="obj-ascii"/>
+                            <normal src="https://www.twilightravengames.com/example/avatar2.obj" importer="obj=ascii"/>
+                            <uv src="https://www.twilightravengames.com/example/avatar2.obj" importer="obj-ascii"/>
                             <material src="https://www.twilightravengames.com/example/avatar2/avatar2.obj" importer="obj"/>
+                            <boxtransform src="https://www.twilightravengames.com/example/center/mirror-portal.tfm"/>
+                            <!-- this href to an html document here makes it so this object is a portal that jumps to another 
+                                 a standard web page upon collision. The LOD parameters, geometry, and materials determine how that web page
+                                 is displayed through the "window" portal.
+                            <a href="https://www.google.com/index.html" type="bottom">
+                                <lod src="https://www.google.com/index/levelofdetail.xml" type="settings"/>
+                            </a>
                     </ENTRY>
                 </LIBRARY>
             </UNRIGGED>
 
-            <!-- ToDo: Provides for particles according to a particle system engine to exist for things like volumetricsd, water, clouds, and other applications -->
+            <!-- Provides for particles according to a particle system engine to exist for things like volumetrics, water, clouds, and other applications -->
             <PARTICLE SYSTEM>
-
+                <!-- Particle System engine Meta Source Tag - Defines additional information about the behavior of the Particle Engine -->
+                <engine src="https://www.twilightravengames.com/example/particles.ngn"/>
+                <!-- Using extension fmt for now, unknown what particle system formats or importers will be supported yet -->
+                <particle src="https://www.twilightravengames.com/example/particles.fmt" importer="unknown" -->
+                <boxtransform src="https://www.twilightravengames.com/example/center/sentient-emission-light-1.tfm"/
             </PARTICLE SYSTEM>
 
-            <!-- ToDo: Provides an interface for custom tags provided by the creator -->
+            <!-- Provides an interface for custom tags provided by the creator -->
             <CUSTOM TAGS>
-
+                <custom src="https://www.twilightravengames.com/example/customtag.schema"/>
             </CUSTOM TAGS>
         </SECTOR>
     
@@ -190,6 +357,8 @@
         <rds id="" href=""/>
         <rds id="" href=""/>
         <rds id="" href=""/>
+        <!-- There is a mechanism to add DIVs to the StruMML document as in standard HTML, so that they can be modified client-side by JavaScript -->
+        <DIV id="example"/>
     </RDS LOCATOR>
     
 </STRUMML>
