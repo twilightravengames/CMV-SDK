@@ -41,7 +41,7 @@
             <!-- Defines the boundary sectors of the current sector and the sector prism dimension type -->
             <BOUNDARIES bounds="hexagonal-prism" name="example-center" url="https://www.twilightravengames.com/example/center.strmml">
                 <a href="https://www.twilightravengames.com/example/topboundary.strmml" type="top">
-                    <!-- A LOD source is a set of settings that determines hwo level of detail caching is handled for a StruMML file from
+                    <!-- A LOD source is a set of settings that determines how level of detail caching is handled for a StruMML file from
                          an external sector -->
                     <lod src="https://www.twilightravengames.com/example/levelofdetail.xml" type="settings"/>
                 </a>
@@ -141,7 +141,7 @@
                             <normal src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
-                            <material src="https://www.twilightravengames.com/example/slime/materials/" importer="fbx2012-ascii"/>
+                            <material src="https://www.twilightravengames.com/example/slime/materials/" importer="nvidia-mdl"/>
                             <!-- This defines the AI behavior for the NPC -->
                             <behavior src="https://www.twilightravengames.com/example/slime/slime_ai.ngn"/>
                             <boxtransform src="https://www.twilightravengames.com/example/center/slime_ai.tfm"/>
@@ -151,7 +151,7 @@
                             <normal src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" importer="fbx2012=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/sci-fi-soldier.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
-                            <material src="https://www.twilightravengames.com/example/sci-fi-soldier/materials/" importer="fbx2012-ascii"/>
+                            <material src="https://www.twilightravengames.com/example/sci-fi-soldier/materials/" importer="nvidia-mdl"/>
                             <behavior src="https://www.twilightravengames.com/example/slime/sci-fi-soldier_ai.ngn"/>
                             <boxtransform src="https://www.twilightravengames.com/example/center/sci-fi-soldier.tfm"/>
                     </ENTRY>
@@ -160,7 +160,7 @@
                             <normal src="https://www.twilightravengames.com/example/archer.obj" importer="obj=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/archer.obj" importer="obj-ascii"/>
                             <!--This tag points to the obj because in the case of obj the materials must be embedded" -->
-                            <material src="https://www.twilightravengames.com/example/archer.obj" importer="obj"/>
+                            <material src="https://www.twilightravengames.com/example/materials" importer="nvidia-mdl"/>
                             <behavior src="https://www.twilightravengames.com/example/slime/archer_ai.ngn"/>
                             <boxtransform src="https://www.twilightravengames.com/example/center/archer1.tfm"/>
                     </ENTRY>
@@ -255,7 +255,7 @@
                         <normal src="https://www.twilightravengames.com/example/geometric-emission-light-1.fbx" importer="fbx2012=ascii"/>
                         <uv src="https://www.twilightravengames.com/example/geometric-emission-light-1.fbx" importer="fbx2012-ascii"/>
                         <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
-                        <material src="https://www.twilightravengames.com/example/geometric-emission-light-1/materials/" importer="fbx2012-ascii"/>
+                        <material src="https://www.twilightravengames.com/example/geometric-emission-light-1/materials/" importer="nvidia-mdl"/>
                         <boxtransform src="https://www.twilightravengames.com/example/center/geometric-emission-light-1.tfm"/> 
                     </ENTRY>
 
@@ -265,7 +265,7 @@
                         <normal src="https://www.twilightravengames.com/example/sentient-emission-light-1.fbx" importer="fbx2012=ascii"/>
                         <uv src="https://www.twilightravengames.com/example/sentient-emission-light-1.fbx" importer="fbx2012-ascii"/>
                         <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
-                        <material src="https://www.twilightravengames.com/example/sentient-emission-light-1/materials/" importer="fbx2012-ascii"/>
+                        <material src="https://www.twilightravengames.com/example/sentient-emission-light-1/materials/" importer="nvidia-mdl"/>
                         <behavior src="https://www.twilightravengames.com/example/sentient-emission-light-1/sentient-emission-light-1_ai.ngn"/>
                         <boxtransform src="https://www.twilightravengames.com/example/center/sentient-emission-light-1.tfm"/> 
                     </ENTRY>
@@ -286,7 +286,7 @@
                             <normal src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/slime.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
-                            <material src="https://www.twilightravengames.com/example/avatar1/materials/" importer="fbx2012-ascii"/>
+                            <material src="https://www.twilightravengames.com/example/avatar1/materials/" importer="nvidia-mdl"/>
                             <boxtransform src="https://www.twilightravengames.com/example/center/house-geom.tfm"/>
                     </ENTRY>
                      <ENTRY id="apple-1">
@@ -295,7 +295,7 @@
                             <normal src="https://www.twilightravengames.com/example/apple-1.fbx" importer="fbx2012=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/apple-1.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
-                            <material src="https://www.twilightravengames.com/example/apple-1/materials/" importer="fbx2012-ascii"/>
+                            <material src="https://www.twilightravengames.com/example/apple-1/materials/" importer="nvidia-mdl"/>
                             <boxtransform src="https://www.twilightravengames.com/example/center/apple-1.tfm"/>
                             <!-- provides physics information for the apple including weight, density, behavior, etc -->
                             <physics src="https://www.twilightravengames.com/example/avatar1/apple.usif"/>
@@ -308,7 +308,7 @@
                             <normal src="https://www.twilightravengames.com/example/table-1.fbx" importer="fbx2012=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/table-1.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
-                            <material src="https://www.twilightravengames.com/example/table-1/materials/" importer="fbx2012-ascii"/>
+                            <material src="https://www.twilightravengames.com/example/table-1/materials/" importer="nvidia-mdl"/>
                             <boxtransform src="https://www.twilightravengames.com/example/center/table-1.tfm"/>
                     </ENTRY>
                     <ENTRY id="terrain">
@@ -316,14 +316,14 @@
                             <normal src="https://www.twilightravengames.com/example/terrain.fbx" importer="fbx2012=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/terrain.fbx" importer="fbx2012-ascii"/>
                             <!--This tag points to a url where the materials can be found that are refernced in the fbx" -->
-                            <material src="https://www.twilightravengames.com/example/terrain/materials/" importer="fbx2012-ascii"/>
+                            <material src="https://www.twilightravengames.com/example/terrain/materials/" importer="nvidia-mdl"/>
                             <boxtransform src="https://www.twilightravengames.com/example/center/terrain.tfm"/>
                     </ENTRY>
                     <ENTRY id="mirror-portal">
                             <geom src="https://www.twilightravengames.com/example/mirror-portal.obj" importer="obj-ascii"/>
                             <normal src="https://www.twilightravengames.com/example/mirror-portal.obj" importer="obj=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/mirror-portal.obj" importer="obj-ascii"/>
-                            <material src="https://www.twilightravengames.com/example/avatar2/mirror-portal.obj" importer="obj"/>
+                            <material src="https://www.twilightravengames.com/example/avatar2/material" importer="nvidia-mdl"/>
                             <boxtransform src="https://www.twilightravengames.com/example/center/mirror-portal.tfm"/>
                             <!-- this href to a strumml document here makes it so this object is a portal that jumps to another 
                                  StruMML sector upon collision. The LOD parameters, geometry, and materials determine how that sector
@@ -336,7 +336,7 @@
                             <geom src="https://www.twilightravengames.com/example/avatar3.obj" importer="obj-ascii"/>
                             <normal src="https://www.twilightravengames.com/example/avatar2.obj" importer="obj=ascii"/>
                             <uv src="https://www.twilightravengames.com/example/avatar2.obj" importer="obj-ascii"/>
-                            <material src="https://www.twilightravengames.com/example/avatar2/avatar2.obj" importer="obj"/>
+                            <material src="https://www.twilightravengames.com/example/avatar2/materials" importer="nvidia-mdl"/>
                             <boxtransform src="https://www.twilightravengames.com/example/center/mirror-portal.tfm"/>
                             <!-- this href to an html document here makes it so this object is a portal that jumps to another 
                                  a standard web page upon collision. The LOD parameters, geometry, and materials determine how that web page
