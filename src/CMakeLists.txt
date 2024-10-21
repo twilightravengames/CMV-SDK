@@ -1,65 +1,31 @@
-cmake_minimum_required(VERSION 3.2)
-project(cmv_sdk VERSION 1.0.0 LANGUAGES CXX)
+
+cmake_minimum_required(VERSION 3.16)
+project (CMV-SDK LANGUAGES CXX)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_AUTOMOC ON)
-message(STATUS "Configuring...")
+list(APPEND CMAKE_PREFIX_PATH "C:/Qt/6.4.0/msvc2019_64/lib/cmake/Qt6")
+list(APPEND CMAKE_PREFIX_PATH "C:/Qt/6.4.0/msvc2019_64/include")
 
-set($PATH "./" )
-
-set($CMV_ROOT "./" )
-set(CMAKE_VERBOSE_MAKEFILE ON)
-
-
-set(LIBRARY_OUTPUT_DIRECTORY "./lib")
-#set(CMV_DEFI_LOCATION "" )
-#set(CMV_USD_LIB_LOCATION "" )
-#set(NGINEX_LOCATION "" )
-set($CMV_DEBUG ON)
-
-if ($CMV_DEBUG)
-	set(CMAKE_BUILD_TYPE Debug)
-elseif($CMV_RELDEBINFO)
-	set(CMAKE_BUILD_TYPE RelDebInfo)
-endif()
-
-set(CMAKE_PREFIX_PATH "C:/Qt/6.4.0/msvc2019_64/lib/cmake")
+#set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
 
 find_package(Qt6 REQUIRED COMPONENTS Core)
-qt_standard_project_setup()
 
+#target_include_directories(CMV-SDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-cmake_minimum_required(VERSION 3.2)
-project(cmv_src)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_AUTOMOC ON)
-message(STATUS "Configuring source...")
+add_subdirectory(./sdksrc)
+add_subdirectory(./sdkheader)
 
-add_library(cmv_sdk SHARED )
+add_library(CMV-SDK)
+# Link against Qt 6 libraries
+target_link_libraries(CMV-SDK PUBLIC CMV-TAG_HEAD CMV-TAG_SRC Qt6::Core)
 
-set(PROJECT_ROOT "./")
-set(HEADER_ROOT ${PROJECT_ROOT}/sdkheader)
-set(SOURCE_ROOT ${PROJECT_ROOT}/sdksrc)
-
-set(PROJECT_SOURCE
-	${SOURCE_ROOT}/cmv_base.cpp 
-)
-
-
-set(PROJECT_HEADER
-	${HEADER_ROOT}/cmv_base.h
-)
-
-
-include_directories("./sdkheader")
-
-target_sources(cmv_sdk PRIVATE ${PROJECT_SOURCE} ${PROJECT_HEADER})
-
-target_link_libraries(cmv_sdk
-		PRIVATE Qt6::Core)
-
-
+# Define the target "CMV-SDKDemo"
+#add_executable(CMV-SDKDemo main.cpp)
 
 
 

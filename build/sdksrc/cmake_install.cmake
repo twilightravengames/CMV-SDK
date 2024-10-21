@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/twili/Desktop/Twilight Raven Games Checkouts/CMV-SDK/src/sdksrc
+# Install script for directory: D:/Twilight Raven Games Checkouts/CMV-SDK/src/sdksrc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/cmv_sdk")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/CMV-SDK")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -30,5 +30,10 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("D:/Twilight Raven Games Checkouts/CMV-SDK/build/sdksrc/tags/cmake_install.cmake")
 endif()
 
